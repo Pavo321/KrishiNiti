@@ -1,0 +1,23 @@
+{
+  "templates": {
+    "PRICE_BUY_WINDOW": {
+      "body_down": "🌾 KrishiNiti — खाद खरीदने की सलाह\n\n📉 {commodity_hi} का भाव {horizon_days} दिनों में गिर सकता है।\n\nभरोसा: {confidence_pct}%\n\n✅ सलाह: {target_date_hi} तक रुकें, फिर खरीदें\n\n📊 अभी का भाव: ₹{current_price}/50 कि.ग्रा.\n📉 अनुमान: ₹{pred_low}–{pred_high}/50 कि.ग्रा.\n\n━━━━━━━━━━━━━━\n❓ गलत लगे? WRONG लिखें\n🚫 बंद करें: STOP",
+      "body_up": "🌾 KrishiNiti — खाद खरीदने की सलाह\n\n📈 {commodity_hi} का भाव {horizon_days} दिनों में बढ़ सकता है।\n\nभरोसा: {confidence_pct}%\n\n✅ सलाह: आज ही खरीदें, भाव बढ़ने से पहले\n\n📊 अभी का भाव: ₹{current_price}/50 कि.ग्रा.\n📈 अनुमान: ₹{pred_low}–{pred_high}/50 कि.ग्रा.\n\n━━━━━━━━━━━━━━\n❓ गलत लगे? WRONG लिखें\n🚫 बंद करें: STOP",
+      "body_stable": "🌾 KrishiNiti — खाद भाव सूचना\n\n📊 {commodity_hi} का भाव {horizon_days} दिन स्थिर रह सकता है।\n\nभरोसा: {confidence_pct}%\n\n✅ सलाह: जरूरत हो तो खरीदें, वरना रुकें\n\n📊 अभी का भाव: ₹{current_price}/50 कि.ग्रा.\n\n━━━━━━━━━━━━━━\n❓ गलत लगे? WRONG लिखें\n🚫 बंद करें: STOP"
+    },
+    "WRONG_PREDICTION_ACK": {
+      "body": "🙏 आपकी प्रतिक्रिया मिली। हमने यह गलती नोट की है।\n\nKrishiNiti टीम इसकी समीक्षा करेगी। भविष्य में और सटीक जानकारी देने की कोशिश करेंगे।\n\nआपका भरोसा हमारे लिए सबसे महत्वपूर्ण है। 🌾"
+    },
+    "OPT_OUT_CONFIRM": {
+      "body": "✅ KrishiNiti की सूचनाएं बंद कर दी गई हैं।\n\nदोबारा शुरू करने के लिए: START लिखें।\n\nधन्यवाद — KrishiNiti टीम 🌾"
+    },
+    "WELCOME": {
+      "body": "🌾 KrishiNiti में आपका स्वागत है!\n\nअब आपको खाद (यूरिया, DAP, MOP) के भाव घटने-बढ़ने की अग्रिम सूचना मिलेगी।\n\n✅ किसान 25–40% खर्च बचा रहे हैं।\n\nगलत हो: WRONG | बंद: STOP | चालू: START"
+    }
+  },
+  "commodity_names": {
+    "UREA": "यूरिया",
+    "DAP": "DAP",
+    "MOP": "MOP (पोटाश)"
+  }
+}

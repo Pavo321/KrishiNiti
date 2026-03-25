@@ -2,8 +2,8 @@
 
 ## What This Project Is
 **AI Farm Input Timing Optimizer** — predicts the best time for Indian farmers to buy fertilizers (Urea, DAP, MOP) and seeds, saving 25–40% on input costs.
-- Delivery: WhatsApp alerts in Gujarati
-- Target users: Small farmers near Ahmedabad (2–5 acre holdings)
+- Delivery: WhatsApp alerts in 10 Indian languages (Hindi, Gujarati, Marathi, Punjabi, Telugu, Kannada, Tamil, Bengali, Odia, Malayalam)
+- Target users: Small farmers across ALL of India (2–5 acre holdings)
 - Market: $250B agri-input market
 
 ## The Real Problem We're Solving
@@ -68,4 +68,5 @@ Farmers buy inputs when they have cash (post-harvest), not when prices are low. 
 - Don't suggest building a mobile app — WhatsApp is the deliberate choice for rural penetration
 - Don't suggest generic "price alert" features — that's what we're replacing, not building
 - Don't over-engineer the ML before the data pipeline exists
-- Don't ignore the Gujarati language requirement for all farmer-facing output
+- Don't hardcode any single state or language — this is ALL India, 10 languages
+- Don't default language to Gujarati — default is Hindi (hi), Gujarat farmers get Gujarati

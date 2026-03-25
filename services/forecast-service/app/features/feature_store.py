@@ -31,7 +31,8 @@ FEATURE_COLUMNS = [
 def build_feature_matrix(
     conn,
     commodity: str,
-    district: str = "Ahmedabad",
+    district: str,
+    state: str,
     end_date: date | None = None,
     lookback_months: int = 36,
 ) -> pd.DataFrame:
@@ -45,7 +46,7 @@ def build_feature_matrix(
     start_date = date(end_date.year - (lookback_months // 12 + 2), 1, 1)
 
     prices = _load_prices(conn, commodity, start_date, end_date)
-    weather = _load_weather(conn, district, start_date, end_date)
+    weather = _load_weather(conn, district, state, start_date, end_date)
 
     if prices.empty:
         raise ValueError(
@@ -87,13 +88,14 @@ def _load_prices(conn, commodity: str, start_date: date, end_date: date) -> pd.D
     return df
 
 
-def _load_weather(conn, district: str, start_date: date, end_date: date) -> pd.DataFrame:
+def _load_weather(conn, district: str, state: str, start_date: date, end_date: date) -> pd.DataFrame:
     query = """
         SELECT observation_date,
                AVG(precipitation_mm) AS precipitation_mm,
                AVG(temp_avg_c) AS temp_avg_c
         FROM weather_data
         WHERE district = %s
+          AND state = %s
           AND observation_date BETWEEN %s AND %s
           AND is_forecast = FALSE
           AND temp_avg_c IS NOT NULL
@@ -101,7 +103,7 @@ def _load_weather(conn, district: str, start_date: date, end_date: date) -> pd.D
         ORDER BY DATE_TRUNC('month', observation_date)
     """
     with conn.cursor() as cur:
-        cur.execute(query, (district, start_date, end_date))
+        cur.execute(query, (district, state, start_date, end_date))
         rows = cur.fetchall()
 
     if not rows:

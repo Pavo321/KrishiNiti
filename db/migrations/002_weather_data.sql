@@ -5,7 +5,7 @@ CREATE TABLE IF NOT EXISTS weather_data (
     id                  BIGSERIAL,
     observation_date    DATE            NOT NULL,
     district            VARCHAR(100)    NOT NULL,
-    state               VARCHAR(50)     NOT NULL DEFAULT 'Gujarat',
+    state               VARCHAR(100)    NOT NULL,
     latitude            NUMERIC(8,5)    NOT NULL,
     longitude           NUMERIC(8,5)    NOT NULL,
     temp_max_c          NUMERIC(5,2),

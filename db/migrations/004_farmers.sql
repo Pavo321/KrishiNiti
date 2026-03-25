@@ -11,12 +11,12 @@ CREATE TABLE IF NOT EXISTS farmers (
 
     -- Non-PII attributes
     village                 VARCHAR(200) NOT NULL,
-    district                VARCHAR(100) NOT NULL DEFAULT 'Ahmedabad',
-    state                   VARCHAR(50)  NOT NULL DEFAULT 'Gujarat',
+    district                VARCHAR(100) NOT NULL,
+    state                   VARCHAR(100) NOT NULL,
     land_acres              NUMERIC(6,2),
     crops                   VARCHAR[]    NOT NULL DEFAULT '{}',  -- ['WHEAT','COTTON','GROUNDNUT']
     preferred_alert_time    TIME         DEFAULT '07:00:00',
-    language                VARCHAR(10)  NOT NULL DEFAULT 'gu',
+    language                VARCHAR(10)  NOT NULL DEFAULT 'hi',  -- ISO 639-1: hi, gu, mr, pa, te, kn, ta, bn, or, ml
 
     -- Consent (DPDP Act 2023 — mandatory)
     consent_given_at        TIMESTAMPTZ,

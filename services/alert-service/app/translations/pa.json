@@ -1,0 +1,22 @@
+{
+  "templates": {
+    "PRICE_BUY_WINDOW": {
+      "body_down": "🌾 KrishiNiti — ਖਾਦ ਖਰੀਦਣ ਦੀ ਸਲਾਹ\n\n📉 {commodity_pa} ਦੀ ਕੀਮਤ {horizon_days} ਦਿਨਾਂ ਵਿੱਚ ਘੱਟ ਸਕਦੀ ਹੈ।\n\n�ਭਰੋਸਾ: {confidence_pct}%\n\n✅ ਸਲਾਹ: {target_date_pa} ਤੱਕ ਉਡੀਕ ਕਰੋ, ਫਿਰ ਖਰੀਦੋ\n\n📊 ਹੁਣ ਦੀ ਕੀਮਤ: ₹{current_price}/50 ਕਿ.ਗ੍ਰਾ.\n📉 ਅੰਦਾਜ਼ਾ: ₹{pred_low}–{pred_high}/50 ਕਿ.ਗ੍ਰਾ.\n\n━━━━━━━━━━━━━━\n❓ ਗਲਤ ਲੱਗੇ? WRONG ਲਿਖੋ\n🚫 ਬੰਦ ਕਰੋ: STOP",
+      "body_up": "🌾 KrishiNiti — ਖਾਦ ਖਰੀਦਣ ਦੀ ਸਲਾਹ\n\n📈 {commodity_pa} ਦੀ ਕੀਮਤ {horizon_days} ਦਿਨਾਂ ਵਿੱਚ ਵੱਧ ਸਕਦੀ ਹੈ।\n\nਭਰੋਸਾ: {confidence_pct}%\n\n✅ ਸਲਾਹ: ਅੱਜ ਹੀ ਖਰੀਦੋ, ਕੀਮਤ ਵਧਣ ਤੋਂ ਪਹਿਲਾਂ\n\n📊 ਹੁਣ ਦੀ ਕੀਮਤ: ₹{current_price}/50 ਕਿ.ਗ੍ਰਾ.\n📈 ਅੰਦਾਜ਼ਾ: ₹{pred_low}–{pred_high}/50 ਕਿ.ਗ੍ਰਾ.\n\n━━━━━━━━━━━━━━\n❓ ਗਲਤ ਲੱਗੇ? WRONG ਲਿਖੋ\n🚫 ਬੰਦ ਕਰੋ: STOP"
+    },
+    "WRONG_PREDICTION_ACK": {
+      "body": "🙏 ਤੁਹਾਡੀ ਰਾਏ ਮਿਲੀ। ਅਸੀਂ ਇਹ ਗਲਤੀ ਨੋਟ ਕੀਤੀ ਹੈ। ਭਵਿੱਖ ਵਿੱਚ ਹੋਰ ਸਹੀ ਜਾਣਕਾਰੀ ਦੇਵਾਂਗੇ। 🌾"
+    },
+    "OPT_OUT_CONFIRM": {
+      "body": "✅ KrishiNiti ਦੀਆਂ ਸੂਚਨਾਵਾਂ ਬੰਦ ਕੀਤੀਆਂ।\n\nਦੁਬਾਰਾ ਸ਼ੁਰੂ ਕਰਨ ਲਈ: START ਲਿਖੋ।\n\nਧੰਨਵਾਦ — KrishiNiti ਟੀਮ 🌾"
+    },
+    "WELCOME": {
+      "body": "🌾 KrishiNiti ਵਿੱਚ ਤੁਹਾਡਾ ਸੁਆਗਤ ਹੈ!\n\nਹੁਣ ਤੁਹਾਨੂੰ ਖਾਦ (ਯੂਰੀਆ, DAP, MOP) ਦੀਆਂ ਕੀਮਤਾਂ ਬਾਰੇ ਪਹਿਲਾਂ ਤੋਂ ਸੂਚਨਾ ਮਿਲੇਗੀ।\n\n✅ ਕਿਸਾਨ 25–40% ਖਰਚਾ ਬਚਾ ਰਹੇ ਹਨ।\n\nਗਲਤ: WRONG | ਬੰਦ: STOP | ਸ਼ੁਰੂ: START"
+    }
+  },
+  "commodity_names": {
+    "UREA": "ਯੂਰੀਆ",
+    "DAP": "DAP",
+    "MOP": "MOP (ਪੋਟਾਸ਼)"
+  }
+}

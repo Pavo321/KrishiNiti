@@ -1,0 +1,22 @@
+{
+  "templates": {
+    "PRICE_BUY_WINDOW": {
+      "body_down": "🌾 KrishiNiti — সার কেনার পরামর্শ\n\n📉 {commodity_bn} এর দাম {horizon_days} দিনে কমতে পারে।\n\nবিশ্বাস: {confidence_pct}%\n\n✅ পরামর্শ: {target_date_bn} পর্যন্ত অপেক্ষা করুন, তারপর কিনুন\n\n📊 এখনকার দাম: ₹{current_price}/50 কি.গ্রা.\n📉 অনুমান: ₹{pred_low}–{pred_high}/50 কি.গ্রা.\n\n━━━━━━━━━━━━━━\n❓ ভুল মনে হলে? WRONG লিখুন\n🚫 বন্ধ করুন: STOP",
+      "body_up": "🌾 KrishiNiti — সার কেনার পরামর্শ\n\n📈 {commodity_bn} এর দাম {horizon_days} দিনে বাড়তে পারে।\n\nবিশ্বাস: {confidence_pct}%\n\n✅ পরামর্শ: দাম বাড়ার আগেই আজই কিনুন\n\n📊 এখনকার দাম: ₹{current_price}/50 কি.গ্রা.\n📈 অনুমান: ₹{pred_low}–{pred_high}/50 কি.গ্রা.\n\n━━━━━━━━━━━━━━\n❓ ভুল মনে হলে? WRONG লিখুন\n🚫 বন্ধ করুন: STOP"
+    },
+    "WRONG_PREDICTION_ACK": {
+      "body": "🙏 আপনার মতামত পাওয়া গেছে। এই ভুলটি আমরা লিপিবদ্ধ করেছি। ভবিষ্যতে আরও সঠিক তথ্য দেওয়ার চেষ্টা করব। 🌾"
+    },
+    "OPT_OUT_CONFIRM": {
+      "body": "✅ KrishiNiti এর বিজ্ঞপ্তি বন্ধ করা হয়েছে।\n\nআবার শুরু করতে: START লিখুন।\n\nধন্যবাদ — KrishiNiti টিম 🌾"
+    },
+    "WELCOME": {
+      "body": "🌾 KrishiNiti-তে আপনাকে স্বাগতম!\n\nএখন আপনি সার (ইউরিয়া, DAP, MOP) এর দামের ওঠানামার আগাম সংবাদ পাবেন।\n\n✅ কৃষকরা ২৫–৪০% খরচ বাঁচাচ্ছেন।\n\nভুল: WRONG | বন্ধ: STOP | চালু: START"
+    }
+  },
+  "commodity_names": {
+    "UREA": "ইউরিয়া",
+    "DAP": "DAP",
+    "MOP": "MOP (পটাশ)"
+  }
+}

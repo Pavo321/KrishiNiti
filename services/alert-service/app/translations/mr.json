@@ -1,0 +1,22 @@
+{
+  "templates": {
+    "PRICE_BUY_WINDOW": {
+      "body_down": "🌾 KrishiNiti — खत खरेदीचा सल्ला\n\n📉 {commodity_mr} ची किंमत {horizon_days} दिवसांत कमी होऊ शकते.\n\nविश्वास: {confidence_pct}%\n\n✅ सल्ला: {target_date_mr} पर्यंत थांबा, मग खरेदी करा\n\n📊 आत्ताची किंमत: ₹{current_price}/50 कि.ग्रा.\n📉 अंदाज: ₹{pred_low}–{pred_high}/50 कि.ग्रा.\n\n━━━━━━━━━━━━━━\n❓ चुकीचे वाटले? WRONG लिहा\n🚫 बंद करा: STOP",
+      "body_up": "🌾 KrishiNiti — खत खरेदीचा सल्ला\n\n📈 {commodity_mr} ची किंमत {horizon_days} दिवसांत वाढू शकते.\n\nविश्वास: {confidence_pct}%\n\n✅ सल्ला: आजच खरेदी करा, किंमत वाढण्यापूर्वी\n\n📊 आत्ताची किंमत: ₹{current_price}/50 कि.ग्रा.\n📈 अंदाज: ₹{pred_low}–{pred_high}/50 कि.ग्रा.\n\n━━━━━━━━━━━━━━\n❓ चुकीचे वाटले? WRONG लिहा\n🚫 बंद करा: STOP"
+    },
+    "WRONG_PREDICTION_ACK": {
+      "body": "🙏 तुमचा अभिप्राय मिळाला. ही चूक आम्ही नोंदवली आहे.\n\nभविष्यात अधिक अचूक माहिती देण्याचा प्रयत्न करू. 🌾"
+    },
+    "OPT_OUT_CONFIRM": {
+      "body": "✅ KrishiNiti च्या सूचना बंद केल्या.\n\nपुन्हा सुरू करण्यासाठी: START लिहा.\n\nधन्यवाद — KrishiNiti टीम 🌾"
+    },
+    "WELCOME": {
+      "body": "🌾 KrishiNiti मध्ये आपले स्वागत!\n\nआता तुम्हाला खत (युरिया, DAP, MOP) च्या किमती कमी-जास्त होण्याची आगाऊ सूचना मिळेल.\n\n✅ शेतकरी 25–40% खर्च वाचवत आहेत.\n\nचुकीचे: WRONG | बंद: STOP | सुरू: START"
+    }
+  },
+  "commodity_names": {
+    "UREA": "युरिया",
+    "DAP": "DAP",
+    "MOP": "MOP (पोटॅश)"
+  }
+}

@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS alert_log (
 
     -- Message
     message_template    VARCHAR(100) NOT NULL,  -- 'PRICE_BUY_WINDOW', 'PRICE_WAIT', 'WEEKLY_SUMMARY'
-    message_language    VARCHAR(10)  NOT NULL DEFAULT 'gu',
+    message_language    VARCHAR(10)  NOT NULL,   -- ISO 639-1: hi, gu, mr, pa, te, kn, ta, bn, or, ml
     message_text_hash   VARCHAR(64),            -- SHA256 of rendered message (no PII in logs)
 
     -- WhatsApp delivery tracking

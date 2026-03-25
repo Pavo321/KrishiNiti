@@ -1,0 +1,22 @@
+{
+  "templates": {
+    "PRICE_BUY_WINDOW": {
+      "body_down": "🌾 KrishiNiti — ఎరువు కొనుగోలు సూచన\n\n📉 {commodity_te} ధర {horizon_days} రోజుల్లో తగ్గవచ్చు.\n\nనమ్మకం: {confidence_pct}%\n\n✅ సూచన: {target_date_te} వరకు వేచి ఉండండి, తర్వాత కొనండి\n\n📊 ప్రస్తుత ధర: ₹{current_price}/50 కి.గ్రా.\n📉 అంచనా: ₹{pred_low}–{pred_high}/50 కి.గ్రా.\n\n━━━━━━━━━━━━━━\n❓ తప్పు అనిపిస్తే? WRONG రాయండి\n🚫 ఆపుకోవడానికి: STOP",
+      "body_up": "🌾 KrishiNiti — ఎరువు కొనుగోలు సూచన\n\n📈 {commodity_te} ధర {horizon_days} రోజుల్లో పెరగవచ్చు.\n\nనమ్మకం: {confidence_pct}%\n\n✅ సూచన: ధర పెరగడానికి ముందే ఈరోజు కొనండి\n\n📊 ప్రస్తుత ధర: ₹{current_price}/50 కి.గ్రా.\n📈 అంచనా: ₹{pred_low}–{pred_high}/50 కి.గ్రా.\n\n━━━━━━━━━━━━━━\n❓ తప్పు అనిపిస్తే? WRONG రాయండి\n🚫 ఆపుకోవడానికి: STOP"
+    },
+    "WRONG_PREDICTION_ACK": {
+      "body": "🙏 మీ అభిప్రాయం అందింది. ఈ తప్పిదాన్ని మేము నమోదు చేశాం. భవిష్యత్తులో మరింత ఖచ్చితమైన సమాచారం ఇవ్వడానికి ప్రయత్నిస్తాం. 🌾"
+    },
+    "OPT_OUT_CONFIRM": {
+      "body": "✅ KrishiNiti నోటిఫికేషన్లు ఆపివేయబడ్డాయి.\n\nమళ్లీ ప్రారంభించడానికి: START రాయండి.\n\nధన్యవాదాలు — KrishiNiti టీమ్ 🌾"
+    },
+    "WELCOME": {
+      "body": "🌾 KrishiNiti లోకి స్వాగతం!\n\nఇప్పుడు మీకు ఎరువుల (యూరియా, DAP, MOP) ధరల హెచ్చుతగ్గులపై ముందస్తు సమాచారం వస్తుంది.\n\n✅ రైతులు 25–40% ఖర్చు ఆదా చేస్తున్నారు.\n\nతప్పు: WRONG | ఆపు: STOP | మొదలు: START"
+    }
+  },
+  "commodity_names": {
+    "UREA": "యూరియా",
+    "DAP": "DAP",
+    "MOP": "MOP (పొటాష్)"
+  }
+}

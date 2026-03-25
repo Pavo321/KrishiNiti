@@ -1,0 +1,22 @@
+{
+  "templates": {
+    "PRICE_BUY_WINDOW": {
+      "body_down": "🌾 KrishiNiti — ಗೊಬ್ಬರ ಖರೀದಿ ಸಲಹೆ\n\n📉 {commodity_kn} ಬೆಲೆ {horizon_days} ದಿನಗಳಲ್ಲಿ ಕಡಿಮೆಯಾಗಬಹುದು.\n\nವಿಶ್ವಾಸ: {confidence_pct}%\n\n✅ ಸಲಹೆ: {target_date_kn} ವರೆಗೆ ಕಾಯಿರಿ, ನಂತರ ಖರೀದಿಸಿ\n\n📊 ಈಗಿನ ಬೆಲೆ: ₹{current_price}/50 ಕಿ.ಗ್ರಾ.\n📉 ಅಂದಾಜು: ₹{pred_low}–{pred_high}/50 ಕಿ.ಗ್ರಾ.\n\n━━━━━━━━━━━━━━\n❓ ತಪ್ಪೆನಿಸಿದರೆ? WRONG ಬರೆಯಿರಿ\n🚫 ನಿಲ್ಲಿಸಲು: STOP",
+      "body_up": "🌾 KrishiNiti — ಗೊಬ್ಬರ ಖರೀದಿ ಸಲಹೆ\n\n📈 {commodity_kn} ಬೆಲೆ {horizon_days} ದಿನಗಳಲ್ಲಿ ಹೆಚ್ಚಾಗಬಹುದು.\n\nವಿಶ್ವಾಸ: {confidence_pct}%\n\n✅ ಸಲಹೆ: ಬೆಲೆ ಏರುವ ಮೊದಲು ಇಂದೇ ಖರೀದಿಸಿ\n\n📊 ಈಗಿನ ಬೆಲೆ: ₹{current_price}/50 ಕಿ.ಗ್ರಾ.\n📈 ಅಂದಾಜು: ₹{pred_low}–{pred_high}/50 ಕಿ.ಗ್ರಾ.\n\n━━━━━━━━━━━━━━\n❓ ತಪ್ಪೆನಿಸಿದರೆ? WRONG ಬರೆಯಿರಿ\n🚫 ನಿಲ್ಲಿಸಲು: STOP"
+    },
+    "WRONG_PREDICTION_ACK": {
+      "body": "🙏 ನಿಮ್ಮ ಅಭಿಪ್ರಾಯ ದೊರೆಯಿತು. ಈ ತಪ್ಪನ್ನು ನಾವು ದಾಖಲಿಸಿದ್ದೇವೆ. ಮುಂದೆ ಹೆಚ್ಚು ನಿಖರ ಮಾಹಿತಿ ನೀಡಲು ಪ್ರಯತ್ನಿಸುತ್ತೇವೆ. 🌾"
+    },
+    "OPT_OUT_CONFIRM": {
+      "body": "✅ KrishiNiti ಅಧಿಸೂಚನೆಗಳನ್ನು ನಿಲ್ಲಿಸಲಾಗಿದೆ.\n\nಮತ್ತೆ ಪ್ರಾರಂಭಿಸಲು: START ಬರೆಯಿರಿ.\n\nಧನ್ಯವಾದಗಳು — KrishiNiti ತಂಡ 🌾"
+    },
+    "WELCOME": {
+      "body": "🌾 KrishiNiti ಗೆ ಸ್ವಾಗತ!\n\nಈಗ ನಿಮಗೆ ಗೊಬ್ಬರ (ಯೂರಿಯಾ, DAP, MOP) ಬೆಲೆಗಳ ಏರಿಳಿತದ ಮುಂಚಿತ ಮಾಹಿತಿ ಸಿಗುತ್ತದೆ.\n\n✅ ರೈತರು 25–40% ಖರ್ಚು ಉಳಿಸುತ್ತಿದ್ದಾರೆ.\n\nತಪ್ಪು: WRONG | ನಿಲ್ಲಿಸು: STOP | ಪ್ರಾರಂಭ: START"
+    }
+  },
+  "commodity_names": {
+    "UREA": "ಯೂರಿಯಾ",
+    "DAP": "DAP",
+    "MOP": "MOP (ಪೊಟ್ಯಾಶ್)"
+  }
+}
