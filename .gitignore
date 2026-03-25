@@ -1,0 +1,57 @@
+# Secrets — never commit
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+*.p12
+
+# Raw data — use DVC or object storage
+data/raw/
+data/processed/
+
+# Model artifacts
+services/forecast-service/model_artifacts/
+**/*.pkl
+**/*.pt
+**/*.onnx
+**/*.bin
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+env/
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+dist/
+build/
+.coverage
+coverage.xml
+htmlcov/
+
+# Node / Next.js
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+frontend/.env.local
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+*.swp
+*.swo
+
+# Docker
+*.log
+
+# MLflow
+mlruns/
+mlartifacts/

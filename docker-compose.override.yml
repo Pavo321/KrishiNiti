@@ -1,0 +1,39 @@
+# Local development overrides — hot reload for all services
+version: "3.9"
+services:
+  price-ingestion-service:
+    volumes:
+      - ./services/price-ingestion-service:/app
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+
+  weather-service:
+    volumes:
+      - ./services/weather-service:/app
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+
+  forecast-service:
+    volumes:
+      - ./services/forecast-service:/app
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+
+  alert-service:
+    volumes:
+      - ./services/alert-service:/app
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+
+  farmer-service:
+    volumes:
+      - ./services/farmer-service:/app
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+
+  analytics-service:
+    volumes:
+      - ./services/analytics-service:/app
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+
+  frontend:
+    command: npm run dev
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+      - /app/.next
