@@ -113,7 +113,7 @@ def fetch_district_weather(district: dict) -> dict:
     headers = {
         "User-Agent": (
             "KrishiNiti-DataPipeline/1.0 "
-            "(Agricultural weather research for Indian farmers — all India; "
+            "(Agricultural weather research for Indian farmers - all India; "
             "github.com/Pavo321/KrishiNiti)"
         )
     }

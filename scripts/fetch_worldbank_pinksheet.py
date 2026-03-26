@@ -23,16 +23,16 @@ SOURCES_FILE = Path("data/sources.md")
 # Confirmed working URL as of March 2026:
 PINK_SHEET_URL = (
     "https://thedocs.worldbank.org/en/doc/"
-    "5d903e848db1d1b83e0ec8f744e55570-0350012021/related/"
-    "CMO-Pink-Sheet-Monthly.xlsx"
+    "74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/"
+    "CMO-Historical-Data-Monthly.xlsx"
 )
 
 # Column names in the Pink Sheet Excel (sheet: "Monthly Prices")
 # These are the commodity names as they appear in row 5 of the sheet
 COMMODITY_COLUMNS = {
-    "Urea, E. Europe, fob bulk": "UREA",
-    "DAP, fob US Gulf": "DAP",
-    "Potassium Chloride, fob Vancouver": "MOP",
+    "Urea": "UREA",
+    "DAP": "DAP",
+    "Potassium chloride": "MOP",
 }
 
 
@@ -126,23 +126,17 @@ def parse_pink_sheet(content: bytes, file_hash: str) -> list[dict]:
         if not date_cell:
             continue
 
-        # Parse date — format is "Jan-60", "Feb-24", etc.
+        # Parse date — format is "1960M01", "2024M12", etc.
         try:
-            if isinstance(date_cell, str) and "-" in date_cell:
-                month_str, year_str = date_cell.strip().split("-")
-                year = int(year_str)
-                year = year + 2000 if year < 50 else year + 1900
-                month_num = {
-                    "Jan": 1, "Feb": 2, "Mar": 3, "Apr": 4,
-                    "May": 5, "Jun": 6, "Jul": 7, "Aug": 8,
-                    "Sep": 9, "Oct": 10, "Nov": 11, "Dec": 12,
-                }[month_str[:3]]
-                price_date = date(year, month_num, 1)
+            if isinstance(date_cell, str) and "M" in date_cell:
+                year = int(date_cell[:4])
+                month = int(date_cell[5:7])
+                price_date = date(year, month, 1)
             elif hasattr(date_cell, "year"):
                 price_date = date_cell.date() if hasattr(date_cell, "date") else date_cell
             else:
                 continue
-        except (ValueError, KeyError):
+        except (ValueError, IndexError):
             continue
 
         for col_idx, commodity in col_map.items():

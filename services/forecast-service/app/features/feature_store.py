@@ -90,7 +90,7 @@ def _load_prices(conn, commodity: str, start_date: date, end_date: date) -> pd.D
 
 def _load_weather(conn, district: str, state: str, start_date: date, end_date: date) -> pd.DataFrame:
     query = """
-        SELECT observation_date,
+        SELECT DATE_TRUNC('month', observation_date) AS date,
                AVG(precipitation_mm) AS precipitation_mm,
                AVG(temp_avg_c) AS temp_avg_c
         FROM weather_data
@@ -111,7 +111,7 @@ def _load_weather(conn, district: str, state: str, start_date: date, end_date: d
         return pd.DataFrame()
 
     df = pd.DataFrame(rows, columns=["date", "precipitation_mm", "temp_avg_c"])
-    df["date"] = pd.to_datetime(df["date"])
+    df["date"] = pd.to_datetime(df["date"]).dt.tz_localize(None)
     df = df.set_index("date").sort_index()
     return df
 

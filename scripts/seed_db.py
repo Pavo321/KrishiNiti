@@ -113,6 +113,7 @@ def seed_nasa_power_weather(conn) -> int:
             rows.append((
                 obs_date,
                 district,
+                data.get("state", ""),
                 lat,
                 lon,
                 get_val("T2M_MAX"),
@@ -127,11 +128,11 @@ def seed_nasa_power_weather(conn) -> int:
 
         insert_sql = """
             INSERT INTO weather_data
-                (observation_date, district, latitude, longitude,
+                (observation_date, district, state, latitude, longitude,
                  temp_max_c, temp_min_c, temp_avg_c,
                  precipitation_mm, humidity_pct, wind_speed_ms,
                  source, is_forecast)
-            VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
+            VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
             ON CONFLICT (observation_date, district, source, is_forecast)
             DO NOTHING
         """
