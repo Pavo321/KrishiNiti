@@ -104,9 +104,12 @@ class LSTMPriceModel:
         logger.info(f"LSTM trained for {self.commodity}. Best val_loss: {best_val_loss:.4f}")
         return {"best_val_loss": round(best_val_loss, 4)}
 
-    def predict(self, df: pd.DataFrame, horizon_months: int = 1) -> dict:
+    def predict(self, df: pd.DataFrame, horizon_days: int = 14) -> dict:
         if not self._is_trained or self.net is None:
             raise RuntimeError("Model must be trained before prediction.")
+
+        from datetime import date, timedelta
+        target_date = date.today() + timedelta(days=horizon_days)
 
         feature_data = df[self.feature_columns].values
         scaled = self.scaler.transform(feature_data)
@@ -121,11 +124,29 @@ class LSTMPriceModel:
 
         # Inverse transform — reconstruct full feature vector with predicted price
         dummy = np.zeros((1, len(self.feature_columns)))
-        dummy[0, 0] = pred_scaled   # price_usd is first column
+        dummy[0, 0] = pred_scaled   # first feature column
         predicted_price = self.scaler.inverse_transform(dummy)[0, 0]
 
-        current_price = df["price_usd"].iloc[-1]
-        pct_change = (predicted_price - current_price) / current_price
+        # Work in INR if available, otherwise USD
+        price_col = "price_inr" if "price_inr" in df.columns else "price_usd"
+        current_price = float(df[price_col].iloc[-1])
+        if price_col == "price_usd":
+            predicted_price_inr = None
+            predicted_price_usd = round(float(predicted_price), 2)
+        else:
+            # LSTM trained on INR features
+            predicted_price_inr = round(float(predicted_price), 2)
+            predicted_price_usd = None
+            # Use INR for direction
+            current_price = float(df["price_inr"].iloc[-1])
+
+        # Clamp to realistic move per horizon
+        max_move = {7: 0.08, 14: 0.12, 30: 0.18}.get(horizon_days, 0.20)
+        lo = current_price * (1 - max_move)
+        hi = current_price * (1 + max_move)
+        clamped = float(np.clip(predicted_price, lo, hi))
+
+        pct_change = (clamped - current_price) / max(current_price, 1e-6)
 
         if pct_change > 0.03:
             direction = "UP"
@@ -135,14 +156,17 @@ class LSTMPriceModel:
             direction = "STABLE"
 
         # LSTM confidence: higher when recent volatility is low
-        recent_std = df["price_usd"].tail(6).std()
-        recent_mean = df["price_usd"].tail(6).mean()
+        price_series = df[price_col].tail(6)
+        recent_std = float(price_series.std())
+        recent_mean = float(price_series.mean())
         cv = recent_std / recent_mean if recent_mean > 0 else 0.5
         confidence = max(0.50, min(0.90, 1.0 - cv))
 
         return {
+            "target_date": target_date.isoformat(),
             "direction": direction,
-            "predicted_price_usd": round(float(predicted_price), 2),
+            "predicted_price_usd": predicted_price_usd,
+            "predicted_price_inr": predicted_price_inr if predicted_price_inr else None,
             "confidence_score": round(float(confidence), 3),
             "model_name": self.MODEL_VERSION,
             "pct_change_from_current": round(float(pct_change), 4),

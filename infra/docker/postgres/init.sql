@@ -11,3 +11,5 @@ CREATE EXTENSION IF NOT EXISTS pg_stat_statements;
 \i /docker-entrypoint-initdb.d/migrations/003_forecasts.sql
 \i /docker-entrypoint-initdb.d/migrations/004_farmers.sql
 \i /docker-entrypoint-initdb.d/migrations/005_alert_log.sql
+\i /docker-entrypoint-initdb.d/migrations/006_market_events.sql
+\i /docker-entrypoint-initdb.d/migrations/007_model_weights.sql

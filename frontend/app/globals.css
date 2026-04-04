@@ -1,0 +1,90 @@
+@import "tailwindcss";
+
+:root {
+  /* Vibrant, nature-inspired palette */
+  --background: #061e14; /* Deep forest green */
+  --foreground: #f0fdf4; /* Light mint/white */
+  
+  --card: rgba(14, 46, 32, 0.6); /* Translucent dark green */
+  --card-border: rgba(74, 222, 128, 0.3); /* Soft vibrant green */
+  --card-hover: rgba(20, 70, 48, 0.8);
+  
+  --accent-green: #4ade80; /* Bright neon green */
+  --accent-yellow: #facc15; /* Sunlight yellow */
+  --accent-red: #f87171; /* Warning/Danger red */
+  --accent-blue: #60a5fa; /* Sky blue */
+  --muted: #94a3b8; /* Soft slate for subtle text */
+  --glass-stroke: rgba(255, 255, 255, 0.1);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: 'Inter', system-ui, sans-serif;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Base custom utility classes for "crazy and fun" vibes */
+@layer utilities {
+  .glass {
+    @apply backdrop-blur-md bg-[var(--card)] border border-[var(--card-border)] rounded-2xl shadow-[0_8px_32px_0_rgba(0,0,0,0.37)];
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  }
+  
+  .glass:hover {
+    @apply border-green-400 bg-[var(--card-hover)] shadow-[0_0_20px_rgba(74,222,128,0.3)];
+    transform: translateY(-2px);
+  }
+  
+  .text-glow {
+    text-shadow: 0 0 10px rgba(74, 222, 128, 0.5), 0 0 20px rgba(74, 222, 128, 0.3);
+  }
+
+  .text-glow-yellow {
+    text-shadow: 0 0 10px rgba(250, 204, 21, 0.5), 0 0 20px rgba(250, 204, 21, 0.3);
+  }
+  
+  .bg-radial-gradient {
+    background: radial-gradient(circle at center, rgba(74, 222, 128, 0.1) 0%, rgba(6, 30, 20, 1) 100%);
+  }
+
+  .badge-up {
+    @apply bg-green-900/50 text-green-400 px-2.5 py-0.5 rounded-full text-xs font-bold border border-green-500/30;
+    box-shadow: 0 0 8px rgba(74, 222, 128, 0.2);
+  }
+  .badge-down {
+    @apply bg-red-900/50 text-red-400 px-2.5 py-0.5 rounded-full text-xs font-bold border border-red-500/30;
+    box-shadow: 0 0 8px rgba(248, 113, 113, 0.2);
+  }
+  .badge-stable {
+    @apply bg-yellow-900/50 text-yellow-400 px-2.5 py-0.5 rounded-full text-xs font-bold border border-yellow-500/30;
+    box-shadow: 0 0 8px rgba(250, 204, 21, 0.2);
+  }
+
+  /* Grid pattern for a technical/agricultural map feel */
+  .bg-grid-pattern {
+    background-image: 
+      linear-gradient(to right, rgba(74, 222, 128, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(74, 222, 128, 0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+}
+
+/* Legacy Card mapping so we don't break existing layout immediately */
+
+
+/* Custom scrollbar for better look */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(74, 222, 128, 0.3);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(74, 222, 128, 0.6);
+}

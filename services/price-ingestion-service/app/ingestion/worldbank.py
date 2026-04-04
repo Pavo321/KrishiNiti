@@ -22,7 +22,8 @@ PINK_SHEET_URL = (
 COMMODITY_COLUMNS = {
     "Urea": "UREA",
     "DAP": "DAP",
-    "Potassium Chloride": "MOP",
+    "Potassium chloride": "MOP",
+    "TSP": "TSP",
 }
 
 USD_TO_INR_DEFAULT = 83.5  # Updated by RBI rate fetcher in production
@@ -115,18 +116,29 @@ def _parse_date(cell) -> date | None:
     if not cell:
         return None
     try:
-        if isinstance(cell, str) and "-" in cell:
-            parts = cell.strip().split("-")
+        cell_str = str(cell).strip()
+
+        # Format: "1960M01" (World Bank current format)
+        if "M" in cell_str and len(cell_str) == 7:
+            year = int(cell_str[:4])
+            month = int(cell_str[5:7])
+            return date(year, month, 1)
+
+        # Format: "Jan-60" or "Jan-1960" (legacy)
+        if "-" in cell_str:
+            parts = cell_str.split("-")
             month_map = {
-                "Jan": 1, "Feb": 2, "Mar": 3, "Apr": 4,
-                "May": 5, "Jun": 6, "Jul": 7, "Aug": 8,
-                "Sep": 9, "Oct": 10, "Nov": 11, "Dec": 12,
+                "jan": 1, "feb": 2, "mar": 3, "apr": 4,
+                "may": 5, "jun": 6, "jul": 7, "aug": 8,
+                "sep": 9, "oct": 10, "nov": 11, "dec": 12,
             }
             year = int(parts[1])
-            year = year + 2000 if year < 50 else year + 1900
-            return date(year, month_map[parts[0][:3]], 1)
-        elif hasattr(cell, "year"):
+            year = year + 2000 if year < 50 else (year + 1900 if year < 100 else year)
+            return date(year, month_map[parts[0][:3].lower()], 1)
+
+        # Excel date object
+        if hasattr(cell, "year"):
             return cell.date() if hasattr(cell, "date") else cell
-    except (ValueError, KeyError, IndexError):
+    except (ValueError, KeyError, IndexError, AttributeError):
         pass
     return None
