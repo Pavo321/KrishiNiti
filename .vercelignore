@@ -1,0 +1,6 @@
+services/
+infra/
+scripts/
+docs/
+pyproject.toml
+*.py
